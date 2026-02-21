@@ -1,3 +1,4 @@
+import { BASE_URL } from '../config';
 import React, { useEffect, useState } from 'react';
 import { 
   StyleSheet, 
@@ -24,8 +25,7 @@ export default function HomeScreen({ onLogout, isLoggedIn, onOpenLogin }) {
   const [price, setPrice] = useState('');
 
   // Update this IP to match your server's IP
-  const API_URL = 'http://192.168.1.16:5000/api/parts';
-
+  const API_URL = `${BASE_URL}/parts`;
   useEffect(() => {
     fetchParts();
   }, []);
@@ -38,7 +38,7 @@ export default function HomeScreen({ onLogout, isLoggedIn, onOpenLogin }) {
       Alert.alert(title, message);
     }
   };
-
+// عرض جميع القطع
   const fetchParts = async () => {
     try {
       const response = await axios.get(API_URL);

@@ -1,3 +1,4 @@
+import { BASE_URL } from '../config';
 import React, { useState } from 'react';
 import {
   View,
@@ -44,7 +45,7 @@ export default function AuthScreen({ onLoginSuccess, onBack }) {
     setLoading(true);
     try {
       // Make sure the IP matches your machine's IP
-      const response = await axios.post('http://192.168.1.16:5000/api/auth/login', {
+      const response = await axios.post(`${BASE_URL}/auth/login`, {
         email: email.trim(),
         password: password
       }, { timeout: 8000 }); // 8 seconds timeout
@@ -79,7 +80,7 @@ export default function AuthScreen({ onLoginSuccess, onBack }) {
     }
     setLoading(true);
     try {
-      const response = await axios.post('http://192.168.1.16:5000/api/auth/register', {
+      const response = await axios.post(`${BASE_URL}/auth/register`, {
         username: username,
         email: email.trim(),
         password: password

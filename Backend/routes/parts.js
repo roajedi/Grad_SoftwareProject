@@ -1,6 +1,6 @@
 const express = require('express');
 const router = express.Router();
-const Part = require('../models/Part'); // استيراد الموديل الذي أنشأناه سابقاً
+const Part = require('../models/Part');
 
 // 1. جلب كل القطع
 router.get('/', async (req, res) => {
